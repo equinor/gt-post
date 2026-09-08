@@ -7,10 +7,11 @@ ENV PATH="/root/.pixi/bin:${PATH}"
 
 COPY . /app
 WORKDIR /app
-ENV CONDA_OVERRIDE_CUDA=12.1
 ENV CONDA_OVERRIDE_GLIBC=2.17
-RUN pixi install
-RUN pixi shell-hook > /shell-hook
+# Runtime-only environment: excludes the dev/docs/training/gpu features
+ENV PIXI_ENV=prod
+RUN pixi install -e ${PIXI_ENV}
+RUN pixi shell-hook -e ${PIXI_ENV} > /shell-hook
 RUN chmod +x /shell-hook
 RUN mkdir -p ~/.config/matplotlib \
     && echo "backend : Agg" > ~/.config/matplotlib/matplotlibrc

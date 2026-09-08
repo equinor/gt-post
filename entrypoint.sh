@@ -3,6 +3,8 @@
 # Source pixi shell hook if present so pixi-managed environment is available
 [[ -f /shell-hook ]] && source /shell-hook
 
+PIXI_ENV="${PIXI_ENV:-default}"
+
 # -----------------------------------------------------------------------------
 # Configuration
 # -----------------------------------------------------------------------------
@@ -79,7 +81,7 @@ case "${JOB_MODE}" in
   preprocess)
     INI_FILE="${INI_FILE:-${WORK_INPUT_DIR%/}/input.ini}"
     echo "Running preprocess: ini=${INI_FILE}, output=${WORK_OUTPUT_DIR}"
-    if ! pixi run python -m gtpost.interface.preprocess "${INI_FILE}" "${WORK_OUTPUT_DIR}"; then
+    if ! pixi run -e "${PIXI_ENV}" python -m gtpost.interface.preprocess "${INI_FILE}" "${WORK_OUTPUT_DIR}"; then
       rc=$?
       fail "preprocess failed with exit code ${rc}" true ${rc}
     fi
@@ -99,7 +101,7 @@ case "${JOB_MODE}" in
       fail "process mode requires orchestration_id in payload to determine simulation directory" false 6
     fi
     echo "Running process: dir=${SIM_DIR} (in-place)"
-    if ! pixi run python -m gtpost.interface.process "${SIM_DIR}" "${SIM_DIR}"; then
+    if ! pixi run -e "${PIXI_ENV}" python -m gtpost.interface.process "${SIM_DIR}" "${SIM_DIR}"; then
       rc=$?
       fail "process failed with exit code ${rc}" false ${rc}
     fi
@@ -113,7 +115,7 @@ case "${JOB_MODE}" in
       fail "postprocess mode requires orchestration_id in payload to determine simulation directory" false 7
     fi
     echo "Running postprocess: dir=${SIM_DIR} (in-place)"
-    if ! pixi run python -m gtpost.interface.postprocess "${SIM_DIR}" "${SIM_DIR}"; then
+    if ! pixi run -e "${PIXI_ENV}" python -m gtpost.interface.postprocess "${SIM_DIR}" "${SIM_DIR}"; then
       rc=$?
       fail "postprocess failed with exit code ${rc}" false ${rc}
     fi

@@ -66,10 +66,6 @@ pandas = "*"
 pillow = "*"
 tqdm = "*"
 requests = "*"
-imgviz = "*"
-labelme = "*"
-pyqt = "*"
-pycocotools = "*"
 nomkl = "*"
 rasterio = "*"
 xarray = "*"
@@ -79,45 +75,71 @@ shapely = "*"
 h5netcdf = "*"
 mako = "*"
 pyvista = "*"
-black = "*"
-pytest = "*"
-pytest-cov = "*"
-ruff = "*"
-sphinx = "*"
-sphinx-rtd-theme = "*"
 pip = "*"
-cuda-toolkit = "*"
 psutil = "*"
 sympy = "*"
 
 [tool.pixi.pypi-dependencies]
-labelme2yolo = "*"
 torch = "*"
 torchvision = "*"
 ultralytics = "*"
 gtpost = { path = ".", editable = true }
 
 [tool.pixi.pypi-options]
-extra-index-urls = ["https://download.pytorch.org/whl/cu121"]
+# Inference is pinned to device="cpu", so the CUDA wheels are dead weight.
+extra-index-urls = ["https://download.pytorch.org/whl/cpu"]
 no-build-isolation = []
 
 [tool.pixi.system-requirements]
 linux = "5.4"
-cuda = "12.1"
 libc = { family = "glibc", version = "2.17" }
-
-[tool.pixi.tasks]
-test = "python -m pytest --verbose --cov=gtpost --cov-config=.coveragerc"
-docs = "sphinx-build -b html docs ./docs/build"
-format = "black ."
-lint = "ruff check --fix ./gtpost"
 
 [tool.pixi.feature.py312.dependencies]
 python = "3.12.*"
 
+[tool.pixi.feature.dev.dependencies]
+black = "*"
+pytest = "*"
+pytest-cov = "*"
+ruff = "*"
+
+[tool.pixi.feature.dev.tasks]
+test = "python -m pytest --verbose --cov=gtpost --cov-config=.coveragerc"
+format = "black ."
+lint = "ruff check --fix ./gtpost"
+
+[tool.pixi.feature.docs.dependencies]
+sphinx = "*"
+sphinx-rtd-theme = "*"
+
+[tool.pixi.feature.docs.tasks]
+docs = "sphinx-build -b html docs ./docs/build"
+
+# Annotation/training tooling: not imported by any runtime code path
+[tool.pixi.feature.training.dependencies]
+imgviz = "*"
+labelme = "*"
+pyqt = "*"
+pycocotools = "*"
+
+[tool.pixi.feature.training.pypi-dependencies]
+labelme2yolo = "*"
+
+# Opt-in CUDA stack, kept out of the release image
+[tool.pixi.feature.gpu.dependencies]
+cuda-toolkit = "*"
+
+[tool.pixi.feature.gpu.pypi-options]
+extra-index-urls = ["https://download.pytorch.org/whl/cu121"]
+
+[tool.pixi.feature.gpu.system-requirements]
+cuda = "12.1"
+
 [tool.pixi.environments]
-default = { features = ["py312"], solve-group = "py312" }
-py312 = { features = ["py312"], solve-group = "py312" }
+default = { features = ["py312", "dev", "docs", "training"], solve-group = "py312" }
+py312 = { features = ["py312", "dev", "docs", "training"], solve-group = "py312" }
+prod = { features = ["py312"], solve-group = "py312" }
+gpu = { features = ["py312", "dev", "docs", "training", "gpu"], solve-group = "gpu" }
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
