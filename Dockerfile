@@ -9,7 +9,8 @@ COPY . /app
 WORKDIR /app
 ENV CONDA_OVERRIDE_GLIBC=2.17
 # Runtime-only environment: excludes the dev/docs/training/gpu features
-ENV PIXI_ENV=prod
+ARG PIXI_ENV=prod
+ENV PIXI_ENV=${PIXI_ENV}
 RUN pixi install -e ${PIXI_ENV}
 RUN pixi shell-hook -e ${PIXI_ENV} > /shell-hook
 RUN chmod +x /shell-hook
