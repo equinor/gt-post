@@ -1,33 +1,47 @@
-FROM ubuntu:22.04
+ARG PIXI_ENV=prod
 
-RUN apt-get update && apt-get install -y curl && \
+FROM ubuntu:22.04 AS builder
+
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && \
     curl -fsSL https://pixi.sh/install.sh | PIXI_VERSION=v0.67.2 bash && \
+    mv /root/.pixi/bin/pixi /usr/local/bin/pixi && \
     rm -rf /var/lib/apt/lists/*
-ENV PATH="/root/.pixi/bin:${PATH}"
 
 COPY . /app
 WORKDIR /app
 ENV CONDA_OVERRIDE_GLIBC=2.17
 # Runtime-only environment: excludes the dev/docs/training/gpu features
-ARG PIXI_ENV=prod
+ARG PIXI_ENV
 ENV PIXI_ENV=${PIXI_ENV}
-RUN pixi install -e ${PIXI_ENV}
-RUN pixi shell-hook -e ${PIXI_ENV} > /shell-hook
-RUN chmod +x /shell-hook
-RUN mkdir -p ~/.config/matplotlib \
-    && echo "backend : Agg" > ~/.config/matplotlib/matplotlibrc
+RUN pixi install --locked -e "${PIXI_ENV}" \
+    && pixi shell-hook -e "${PIXI_ENV}" > /shell-hook
 
-WORKDIR /app
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+FROM ubuntu:22.04 AS runtime
+
+ARG PIXI_ENV
+ENV PIXI_ENV=${PIXI_ENV} \
+    CONDA_OVERRIDE_GLIBC=2.17 \
+    LD_LIBRARY_PATH=/app/.pixi/envs/${PIXI_ENV}/lib \
+    MPLBACKEND=Agg
 
 RUN apt-get update \
-    && apt-get install -y adduser
-RUN addgroup --gid 1001 radix-non-root-group
-RUN adduser --uid 1001 --gid 1001 radix-non-root-user
+    && apt-get install -y --no-install-recommends adduser ca-certificates \
+    && rm -rf /var/lib/apt/lists/* \
+    && addgroup --gid 1001 radix-non-root-group \
+    && adduser --disabled-password --gecos "" --uid 1001 --gid 1001 radix-non-root-user \
+    && mkdir -p /app/.pixi/envs \
+    && chown 1001:1001 /app /app/.pixi /app/.pixi/envs
 
-# Allow non-root user to access pixi and the shell-hook environment
-RUN chmod -R o+rX /root && chmod -R o+rX /root/.pixi && chown -R 1001:1001 /app/.pixi
+ENV HOME=/home/radix-non-root-user
+WORKDIR /app
+COPY --from=builder /shell-hook /shell-hook
+COPY --from=builder --chown=1001:1001 /app/.pixi/envs/${PIXI_ENV} /app/.pixi/envs/${PIXI_ENV}
+COPY --chown=1001:1001 pyproject.toml pixi.lock README.md LICENSE /app/
+COPY --chown=1001:1001 gtpost/ /app/gtpost/
+COPY --chown=1001:1001 scripts/ /app/scripts/
+COPY --chown=1001:1001 config/ /app/config/
+COPY --chown=1001:1001 gt_templates/ /app/gt_templates/
+COPY --chmod=755 entrypoint.sh /usr/local/bin/entrypoint.sh
 
 USER 1001
 

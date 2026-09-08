@@ -1,5 +1,9 @@
 tests/
 .github/
+.git/
+.venv/
+.venv_*/
+**/__pycache__/
 .pixi/
 .pytest_cache/
 .ruff_cache/
