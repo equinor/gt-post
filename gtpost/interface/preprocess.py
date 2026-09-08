@@ -1,4 +1,6 @@
 import logging
+import os
+import sys
 from pathlib import Path
 
 from gtpost.preprocessing.preprocessing import PreProcess
@@ -23,13 +25,21 @@ def main(
     fpath_output : str | Path, optional
         Relative path within the container folder structure to write results to.
     """
-    write_ini()
+    # Only relevant for the legacy container flow where the ini is derived from $INPUT.
+    if os.environ.get("INPUT"):
+        write_ini(Path(inifile).parent.parent)
     pp = PreProcess(inifile, fpath_output)
     pp.preprocess()
 
 
 if __name__ == "__main__":
-    main()
+    args = sys.argv[1:]
+    kwargs = {}
+    if len(args) >= 1:
+        kwargs["inifile"] = args[0]
+    if len(args) >= 2:
+        kwargs["fpath_output"] = args[1]
+    main(**kwargs)
 
     # for template in [
     #     "River_dominated_1",
