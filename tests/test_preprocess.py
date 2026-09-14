@@ -46,6 +46,7 @@ class TestPreprocess:
             "Sobrarbe",
             "Retrograding",
             "Blackhawk",
+            "Prograding",
         ),
     )
     def test_preprocessing(self, template):
