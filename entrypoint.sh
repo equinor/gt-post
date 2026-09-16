@@ -121,7 +121,7 @@ case "${JOB_MODE}" in
       while IFS= read -r -d '' result_file; do
         relative_path="${result_file#"${YOLO_RESULTS_DIR%/}/"}"
         flattened_name="${relative_path//\//_}"
-        mv "${result_file}" "${SIM_DIR%/}/yolo_${flattened_name}" \
+        mv "${result_file}" "${SIM_DIR%/}/${flattened_name}" \
           || fail "failed to move YOLO result: ${result_file}" false 9
       done < <(find "${YOLO_RESULTS_DIR}" -type f -print0)
       rm -rf "${YOLO_RESULTS_DIR}"
