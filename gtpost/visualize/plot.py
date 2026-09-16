@@ -578,7 +578,7 @@ class StatPlot(PlotBase):
         y_pos = np.arange(len(aelabels))
         self.axs[0, 0].barh(
             y_pos,
-            self.model.archel_volumes,
+            self.model.archel_volumes[1 : len(aelabels) + 1],
             align="center",
             color=colormaps.ArchelColormap.colors[1:],
         )

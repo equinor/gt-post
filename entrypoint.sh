@@ -11,6 +11,7 @@ WORK_DIR="${WORK_DIR:-./tmp/work}"
 MAIN_DIR="${MAIN_DIR:-./tmp/main}"        # Final storage location
 ARGS_FOLDER="${ARGS_FOLDER:-./tmp/args}"
 PAYLOAD_FILE="${ARGS_FOLDER}/payload"
+YOLO_RESULTS_DIR="${YOLO_RESULTS_DIR:-/app/runs/segment}"
 
 # Default paths (may be overridden by payload)
 WORK_INPUT_DIR="${WORK_DIR%/}/input"
@@ -112,9 +113,20 @@ case "${JOB_MODE}" in
     if [[ -z "${SIM_DIR}" ]]; then
       fail "postprocess mode requires orchestration_id in payload to determine simulation directory" false 7
     fi
+    rm -rf "${YOLO_RESULTS_DIR}"
     echo "Running postprocess: dir=${SIM_DIR} (in-place)"
-    if ! python -m gtpost.interface.postprocess "${SIM_DIR}" "${SIM_DIR}"; then
-      rc=$?
+    python -m gtpost.interface.postprocess "${SIM_DIR}" "${SIM_DIR}"
+    rc=$?
+    if [[ -d "${YOLO_RESULTS_DIR}" ]]; then
+      while IFS= read -r -d '' result_file; do
+        relative_path="${result_file#"${YOLO_RESULTS_DIR%/}/"}"
+        flattened_name="${relative_path//\//_}"
+        mv "${result_file}" "${SIM_DIR%/}/yolo_${flattened_name}" \
+          || fail "failed to move YOLO result: ${result_file}" false 9
+      done < <(find "${YOLO_RESULTS_DIR}" -type f -print0)
+      rm -rf "${YOLO_RESULTS_DIR}"
+    fi
+    if [[ ${rc} -ne 0 ]]; then
       fail "postprocess failed with exit code ${rc}" false ${rc}
     fi
     echo "Postprocess completed"

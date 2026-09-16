@@ -1,0 +1,486 @@
+Found payload JSON: /app/args/payload
+Computed paths: BASE_ORCH=orch-85598ed1-647a-471c-8e9e-555d0e801706, SIM_DIR=/mnt/azure-storage/simulation/orch-85598ed1-647a-471c-8e9e-555d0e801706/simulation
+Running postprocess: dir=/mnt/azure-storage/simulation/orch-85598ed1-647a-471c-8e9e-555d0e801706/simulation (in-place)
+Creating new Ultralytics Settings v0.0.8 file ✅ 
+View Ultralytics Settings with 'yolo settings' or at '/home/radix-non-root-user/.config/Ultralytics/settings.json'
+Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart#ultralytics-settings.
+INFO:__main__:11:49:8: Initialized model results:
+
+< simulation - veryfine-sand >
+---------------------------
+Processing state      : postprocessing
+Completed timesteps   : 81
+
+
+INFO:__main__:11:49:8: Starting postprocessing, Memory usage: 1072.75 MB
+/app/gtpost/analyze/sediment.py:66: UserWarning: 'where' used without 'out', expect unitialized memory in output. If this is intentional, use out=None.
+  vfraction = np.divide(
+/app/gtpost/analyze/sediment.py:129: RuntimeWarning: divide by zero encountered in log2
+  diameters_phi = -np.log2(diameters)
+/app/gtpost/analyze/sediment.py:131: RuntimeWarning: invalid value encountered in subtract
+  diameters_phi[:, :, :, index84] - diameters_phi[:, :, :, index16]
+/app/gtpost/analyze/sediment.py:132: RuntimeWarning: invalid value encountered in subtract
+  ) / 4 + (diameters_phi[:, :, :, index90] - diameters_phi[:, :, :, index10]) / 6.6
+/app/gtpost/experimental/detect_archels.py:62: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  fig, ax = plt.subplots()
+
+WARNING ⚠️ imgsz=[282] must be multiple of max stride 32, updating to [288]
+0: 256x288 (no detections), 298.1ms
+1: 256x288 1 dtundef, 298.1ms
+2: 256x288 1 dtundef, 298.1ms
+3: 256x288 1 dtundef, 298.1ms
+4: 256x288 1 dtundef, 298.1ms
+5: 256x288 1 dtundef, 298.1ms
+6: 256x288 1 dtundef, 298.1ms
+7: 256x288 1 dtundef, 298.1ms
+8: 256x288 1 dtundef, 298.1ms
+9: 256x288 1 dtundef, 298.1ms
+10: 256x288 1 dtundef, 298.1ms
+11: 256x288 1 dtundef, 298.1ms
+12: 256x288 1 dtundef, 298.1ms
+13: 256x288 1 dtundef, 298.1ms
+14: 256x288 1 dtundef, 298.1ms
+15: 256x288 1 dtundef, 298.1ms
+16: 256x288 1 dtundef, 298.1ms
+17: 256x288 1 dtundef, 298.1ms
+18: 256x288 1 dtundef, 298.1ms
+19: 256x288 1 dtundef, 298.1ms
+20: 256x288 1 dtundef, 298.1ms
+21: 256x288 1 dtundef, 298.1ms
+22: 256x288 1 dtundef, 298.1ms
+23: 256x288 1 dtundef, 298.1ms
+24: 256x288 1 dtundef, 298.1ms
+25: 256x288 1 dtundef, 298.1ms
+26: 256x288 1 dtundef, 298.1ms
+27: 256x288 1 dtundef, 298.1ms
+28: 256x288 1 dtundef, 298.1ms
+29: 256x288 1 dtundef, 298.1ms
+30: 256x288 1 dtundef, 298.1ms
+31: 256x288 1 dtundef, 298.1ms
+32: 256x288 1 dtundef, 298.1ms
+33: 256x288 1 dtundef, 298.1ms
+34: 256x288 1 dtundef, 298.1ms
+35: 256x288 1 dtundef, 298.1ms
+36: 256x288 1 dtundef, 298.1ms
+37: 256x288 1 dtundef, 298.1ms
+38: 256x288 1 dtundef, 298.1ms
+39: 256x288 1 dtundef, 298.1ms
+40: 256x288 1 dtundef, 298.1ms
+41: 256x288 1 dtundef, 298.1ms
+42: 256x288 1 dtundef, 298.1ms
+43: 256x288 1 dtundef, 298.1ms
+44: 256x288 1 dtundef, 298.1ms
+45: 256x288 1 dtundef, 298.1ms
+46: 256x288 1 dtundef, 298.1ms
+47: 256x288 1 dtundef, 298.1ms
+48: 256x288 1 dtundef, 298.1ms
+49: 256x288 1 dtundef, 298.1ms
+50: 256x288 1 dtundef, 298.1ms
+51: 256x288 1 dtundef, 298.1ms
+52: 256x288 1 dtundef, 298.1ms
+53: 256x288 1 dtundef, 298.1ms
+54: 256x288 1 dtundef, 298.1ms
+55: 256x288 1 dtundef, 298.1ms
+56: 256x288 1 dtundef, 298.1ms
+57: 256x288 1 dtundef, 298.1ms
+58: 256x288 1 dtundef, 298.1ms
+59: 256x288 1 dtundef, 298.1ms
+60: 256x288 1 dtundef, 298.1ms
+61: 256x288 1 dtundef, 298.1ms
+62: 256x288 1 dtundef, 298.1ms
+63: 256x288 1 dtundef, 298.1ms
+64: 256x288 1 dtundef, 298.1ms
+65: 256x288 1 dtundef, 298.1ms
+66: 256x288 1 dtundef, 298.1ms
+67: 256x288 1 dtundef, 298.1ms
+68: 256x288 1 dtundef, 298.1ms
+69: 256x288 1 dtundef, 298.1ms
+70: 256x288 1 dtundef, 298.1ms
+71: 256x288 1 dtundef, 298.1ms
+72: 256x288 1 dtundef, 298.1ms
+73: 256x288 1 dtundef, 298.1ms
+74: 256x288 1 dtundef, 298.1ms
+75: 256x288 1 dtundef, 298.1ms
+76: 256x288 1 dtundef, 298.1ms
+77: 256x288 1 dtundef, 298.1ms
+78: 256x288 1 dtundef, 298.1ms
+79: 256x288 1 dtundef, 298.1ms
+80: 256x288 1 dtundef, 298.1ms
+Speed: 0.9ms preprocess, 298.1ms inference, 5.0ms postprocess per image at shape (1, 3, 256, 288)
+Results saved to /app/runs/segment/dtundef
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:28<00:00, 28.04s/it]100%|██████████| 1/1 [00:28<00:00, 28.04s/it]
+
+WARNING ⚠️ imgsz=[282] must be multiple of max stride 32, updating to [288]
+0: 256x288 (no detections), 232.1ms
+1: 256x288 2 dchannels, 232.1ms
+2: 256x288 9 dchannels, 232.1ms
+3: 256x288 13 dchannels, 232.1ms
+4: 256x288 13 dchannels, 232.1ms
+5: 256x288 8 dchannels, 232.1ms
+6: 256x288 6 dchannels, 232.1ms
+7: 256x288 7 dchannels, 232.1ms
+8: 256x288 10 dchannels, 232.1ms
+9: 256x288 9 dchannels, 232.1ms
+10: 256x288 8 dchannels, 232.1ms
+11: 256x288 14 dchannels, 232.1ms
+12: 256x288 11 dchannels, 232.1ms
+13: 256x288 16 dchannels, 232.1ms
+14: 256x288 19 dchannels, 232.1ms
+15: 256x288 18 dchannels, 232.1ms
+16: 256x288 10 dchannels, 232.1ms
+17: 256x288 10 dchannels, 232.1ms
+18: 256x288 9 dchannels, 232.1ms
+19: 256x288 9 dchannels, 232.1ms
+20: 256x288 10 dchannels, 232.1ms
+21: 256x288 10 dchannels, 232.1ms
+22: 256x288 10 dchannels, 232.1ms
+23: 256x288 10 dchannels, 232.1ms
+24: 256x288 9 dchannels, 232.1ms
+25: 256x288 9 dchannels, 232.1ms
+26: 256x288 9 dchannels, 232.1ms
+27: 256x288 10 dchannels, 232.1ms
+28: 256x288 11 dchannels, 232.1ms
+29: 256x288 9 dchannels, 232.1ms
+30: 256x288 10 dchannels, 232.1ms
+31: 256x288 10 dchannels, 232.1ms
+32: 256x288 9 dchannels, 232.1ms
+33: 256x288 8 dchannels, 232.1ms
+34: 256x288 10 dchannels, 232.1ms
+35: 256x288 8 dchannels, 232.1ms
+36: 256x288 8 dchannels, 232.1ms
+37: 256x288 8 dchannels, 232.1ms
+38: 256x288 8 dchannels, 232.1ms
+39: 256x288 7 dchannels, 232.1ms
+40: 256x288 7 dchannels, 232.1ms
+41: 256x288 6 dchannels, 232.1ms
+42: 256x288 6 dchannels, 232.1ms
+43: 256x288 7 dchannels, 232.1ms
+44: 256x288 6 dchannels, 232.1ms
+45: 256x288 6 dchannels, 232.1ms
+46: 256x288 8 dchannels, 232.1ms
+47: 256x288 8 dchannels, 232.1ms
+48: 256x288 8 dchannels, 232.1ms
+49: 256x288 9 dchannels, 232.1ms
+50: 256x288 6 dchannels, 232.1ms
+51: 256x288 6 dchannels, 232.1ms
+52: 256x288 7 dchannels, 232.1ms
+53: 256x288 6 dchannels, 232.1ms
+54: 256x288 6 dchannels, 232.1ms
+55: 256x288 6 dchannels, 232.1ms
+56: 256x288 6 dchannels, 232.1ms
+57: 256x288 6 dchannels, 232.1ms
+58: 256x288 7 dchannels, 232.1ms
+59: 256x288 7 dchannels, 232.1ms
+60: 256x288 7 dchannels, 232.1ms
+61: 256x288 7 dchannels, 232.1ms
+62: 256x288 7 dchannels, 232.1ms
+63: 256x288 7 dchannels, 232.1ms
+64: 256x288 8 dchannels, 232.1ms
+65: 256x288 8 dchannels, 232.1ms
+66: 256x288 8 dchannels, 232.1ms
+67: 256x288 8 dchannels, 232.1ms
+68: 256x288 8 dchannels, 232.1ms
+69: 256x288 8 dchannels, 232.1ms
+70: 256x288 8 dchannels, 232.1ms
+71: 256x288 8 dchannels, 232.1ms
+72: 256x288 8 dchannels, 232.1ms
+73: 256x288 8 dchannels, 232.1ms
+74: 256x288 8 dchannels, 232.1ms
+75: 256x288 8 dchannels, 232.1ms
+76: 256x288 8 dchannels, 232.1ms
+77: 256x288 8 dchannels, 232.1ms
+78: 256x288 8 dchannels, 232.1ms
+79: 256x288 8 dchannels, 232.1ms
+80: 256x288 8 dchannels, 232.1ms
+Speed: 2.0ms preprocess, 232.1ms inference, 8.7ms postprocess per image at shape (1, 3, 256, 288)
+Results saved to /app/runs/segment/dchannel
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:21<00:00, 21.70s/it]100%|██████████| 1/1 [00:21<00:00, 21.70s/it]
+
+WARNING ⚠️ imgsz=[282] must be multiple of max stride 32, updating to [288]
+0: 256x288 (no detections), 303.6ms
+1: 256x288 2 tchannels, 303.6ms
+2: 256x288 1 tchannel, 303.6ms
+3: 256x288 2 tchannels, 303.6ms
+4: 256x288 2 tchannels, 303.6ms
+5: 256x288 5 tchannels, 303.6ms
+6: 256x288 5 tchannels, 303.6ms
+7: 256x288 3 tchannels, 303.6ms
+8: 256x288 1 tchannel, 303.6ms
+9: 256x288 2 tchannels, 303.6ms
+10: 256x288 1 tchannel, 303.6ms
+11: 256x288 2 tchannels, 303.6ms
+12: 256x288 2 tchannels, 303.6ms
+13: 256x288 2 tchannels, 303.6ms
+14: 256x288 2 tchannels, 303.6ms
+15: 256x288 (no detections), 303.6ms
+16: 256x288 (no detections), 303.6ms
+17: 256x288 2 tchannels, 303.6ms
+18: 256x288 6 tchannels, 303.6ms
+19: 256x288 4 tchannels, 303.6ms
+20: 256x288 2 tchannels, 303.6ms
+21: 256x288 (no detections), 303.6ms
+22: 256x288 (no detections), 303.6ms
+23: 256x288 (no detections), 303.6ms
+24: 256x288 (no detections), 303.6ms
+25: 256x288 (no detections), 303.6ms
+26: 256x288 (no detections), 303.6ms
+27: 256x288 (no detections), 303.6ms
+28: 256x288 1 tchannel, 303.6ms
+29: 256x288 (no detections), 303.6ms
+30: 256x288 (no detections), 303.6ms
+31: 256x288 (no detections), 303.6ms
+32: 256x288 (no detections), 303.6ms
+33: 256x288 (no detections), 303.6ms
+34: 256x288 (no detections), 303.6ms
+35: 256x288 1 tchannel, 303.6ms
+36: 256x288 1 tchannel, 303.6ms
+37: 256x288 1 tchannel, 303.6ms
+38: 256x288 1 tchannel, 303.6ms
+39: 256x288 1 tchannel, 303.6ms
+40: 256x288 (no detections), 303.6ms
+41: 256x288 (no detections), 303.6ms
+42: 256x288 1 tchannel, 303.6ms
+43: 256x288 1 tchannel, 303.6ms
+44: 256x288 1 tchannel, 303.6ms
+45: 256x288 1 tchannel, 303.6ms
+46: 256x288 1 tchannel, 303.6ms
+47: 256x288 1 tchannel, 303.6ms
+48: 256x288 1 tchannel, 303.6ms
+49: 256x288 1 tchannel, 303.6ms
+50: 256x288 1 tchannel, 303.6ms
+51: 256x288 1 tchannel, 303.6ms
+52: 256x288 1 tchannel, 303.6ms
+53: 256x288 1 tchannel, 303.6ms
+54: 256x288 1 tchannel, 303.6ms
+55: 256x288 1 tchannel, 303.6ms
+56: 256x288 1 tchannel, 303.6ms
+57: 256x288 1 tchannel, 303.6ms
+58: 256x288 1 tchannel, 303.6ms
+59: 256x288 1 tchannel, 303.6ms
+60: 256x288 1 tchannel, 303.6ms
+61: 256x288 1 tchannel, 303.6ms
+62: 256x288 1 tchannel, 303.6ms
+63: 256x288 1 tchannel, 303.6ms
+64: 256x288 1 tchannel, 303.6ms
+65: 256x288 1 tchannel, 303.6ms
+66: 256x288 1 tchannel, 303.6ms
+67: 256x288 1 tchannel, 303.6ms
+68: 256x288 1 tchannel, 303.6ms
+69: 256x288 1 tchannel, 303.6ms
+70: 256x288 (no detections), 303.6ms
+71: 256x288 1 tchannel, 303.6ms
+72: 256x288 1 tchannel, 303.6ms
+73: 256x288 1 tchannel, 303.6ms
+74: 256x288 1 tchannel, 303.6ms
+75: 256x288 (no detections), 303.6ms
+76: 256x288 (no detections), 303.6ms
+77: 256x288 (no detections), 303.6ms
+78: 256x288 (no detections), 303.6ms
+79: 256x288 1 tchannel, 303.6ms
+80: 256x288 (no detections), 303.6ms
+Speed: 0.9ms preprocess, 303.6ms inference, 1.3ms postprocess per image at shape (1, 3, 256, 288)
+Results saved to /app/runs/segment/tchannel
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:26<00:00, 26.08s/it]100%|██████████| 1/1 [00:26<00:00, 26.08s/it]
+
+WARNING ⚠️ imgsz=[282] must be multiple of max stride 32, updating to [288]
+0: 256x288 (no detections), 264.3ms
+1: 256x288 3 beachridges, 264.3ms
+2: 256x288 8 beachridges, 264.3ms
+3: 256x288 2 beachridges, 264.3ms
+4: 256x288 10 beachridges, 264.3ms
+5: 256x288 6 beachridges, 264.3ms
+6: 256x288 11 beachridges, 264.3ms
+7: 256x288 7 beachridges, 264.3ms
+8: 256x288 7 beachridges, 264.3ms
+9: 256x288 6 beachridges, 264.3ms
+10: 256x288 6 beachridges, 264.3ms
+11: 256x288 8 beachridges, 264.3ms
+12: 256x288 5 beachridges, 264.3ms
+13: 256x288 5 beachridges, 264.3ms
+14: 256x288 7 beachridges, 264.3ms
+15: 256x288 5 beachridges, 264.3ms
+16: 256x288 6 beachridges, 264.3ms
+17: 256x288 6 beachridges, 264.3ms
+18: 256x288 7 beachridges, 264.3ms
+19: 256x288 6 beachridges, 264.3ms
+20: 256x288 4 beachridges, 264.3ms
+21: 256x288 4 beachridges, 264.3ms
+22: 256x288 4 beachridges, 264.3ms
+23: 256x288 5 beachridges, 264.3ms
+24: 256x288 4 beachridges, 264.3ms
+25: 256x288 5 beachridges, 264.3ms
+26: 256x288 4 beachridges, 264.3ms
+27: 256x288 4 beachridges, 264.3ms
+28: 256x288 6 beachridges, 264.3ms
+29: 256x288 5 beachridges, 264.3ms
+30: 256x288 5 beachridges, 264.3ms
+31: 256x288 5 beachridges, 264.3ms
+32: 256x288 5 beachridges, 264.3ms
+33: 256x288 5 beachridges, 264.3ms
+34: 256x288 5 beachridges, 264.3ms
+35: 256x288 5 beachridges, 264.3ms
+36: 256x288 5 beachridges, 264.3ms
+37: 256x288 6 beachridges, 264.3ms
+38: 256x288 6 beachridges, 264.3ms
+39: 256x288 5 beachridges, 264.3ms
+40: 256x288 5 beachridges, 264.3ms
+41: 256x288 5 beachridges, 264.3ms
+42: 256x288 6 beachridges, 264.3ms
+43: 256x288 6 beachridges, 264.3ms
+44: 256x288 6 beachridges, 264.3ms
+45: 256x288 6 beachridges, 264.3ms
+46: 256x288 6 beachridges, 264.3ms
+47: 256x288 6 beachridges, 264.3ms
+48: 256x288 7 beachridges, 264.3ms
+49: 256x288 7 beachridges, 264.3ms
+50: 256x288 7 beachridges, 264.3ms
+51: 256x288 8 beachridges, 264.3ms
+52: 256x288 8 beachridges, 264.3ms
+53: 256x288 7 beachridges, 264.3ms
+54: 256x288 7 beachridges, 264.3ms
+55: 256x288 8 beachridges, 264.3ms
+56: 256x288 7 beachridges, 264.3ms
+57: 256x288 7 beachridges, 264.3ms
+58: 256x288 8 beachridges, 264.3ms
+59: 256x288 7 beachridges, 264.3ms
+60: 256x288 7 beachridges, 264.3ms
+61: 256x288 7 beachridges, 264.3ms
+62: 256x288 8 beachridges, 264.3ms
+63: 256x288 8 beachridges, 264.3ms
+64: 256x288 8 beachridges, 264.3ms
+65: 256x288 8 beachridges, 264.3ms
+66: 256x288 7 beachridges, 264.3ms
+67: 256x288 7 beachridges, 264.3ms
+68: 256x288 6 beachridges, 264.3ms
+69: 256x288 6 beachridges, 264.3ms
+70: 256x288 6 beachridges, 264.3ms
+71: 256x288 6 beachridges, 264.3ms
+72: 256x288 9 beachridges, 264.3ms
+73: 256x288 9 beachridges, 264.3ms
+74: 256x288 9 beachridges, 264.3ms
+75: 256x288 8 beachridges, 264.3ms
+76: 256x288 8 beachridges, 264.3ms
+77: 256x288 8 beachridges, 264.3ms
+78: 256x288 10 beachridges, 264.3ms
+79: 256x288 10 beachridges, 264.3ms
+80: 256x288 10 beachridges, 264.3ms
+Speed: 2.0ms preprocess, 264.3ms inference, 6.2ms postprocess per image at shape (1, 3, 256, 288)
+Results saved to /app/runs/segment/beachridge
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:23<00:00, 24.00s/it]100%|██████████| 1/1 [00:23<00:00, 24.00s/it]
+
+WARNING ⚠️ imgsz=[282] must be multiple of max stride 32, updating to [288]
+0: 256x288 10 beachs, 288.8ms
+1: 256x288 18 beachs, 288.8ms
+2: 256x288 22 beachs, 288.8ms
+3: 256x288 27 beachs, 288.8ms
+4: 256x288 30 beachs, 288.8ms
+5: 256x288 28 beachs, 288.8ms
+6: 256x288 33 beachs, 288.8ms
+7: 256x288 31 beachs, 288.8ms
+8: 256x288 32 beachs, 288.8ms
+9: 256x288 37 beachs, 288.8ms
+10: 256x288 34 beachs, 288.8ms
+11: 256x288 32 beachs, 288.8ms
+12: 256x288 29 beachs, 288.8ms
+13: 256x288 23 beachs, 288.8ms
+14: 256x288 22 beachs, 288.8ms
+15: 256x288 24 beachs, 288.8ms
+16: 256x288 27 beachs, 288.8ms
+17: 256x288 26 beachs, 288.8ms
+18: 256x288 26 beachs, 288.8ms
+19: 256x288 28 beachs, 288.8ms
+20: 256x288 31 beachs, 288.8ms
+21: 256x288 29 beachs, 288.8ms
+22: 256x288 27 beachs, 288.8ms
+23: 256x288 28 beachs, 288.8ms
+24: 256x288 27 beachs, 288.8ms
+25: 256x288 26 beachs, 288.8ms
+26: 256x288 26 beachs, 288.8ms
+27: 256x288 26 beachs, 288.8ms
+28: 256x288 27 beachs, 288.8ms
+29: 256x288 25 beachs, 288.8ms
+30: 256x288 25 beachs, 288.8ms
+31: 256x288 25 beachs, 288.8ms
+32: 256x288 26 beachs, 288.8ms
+33: 256x288 26 beachs, 288.8ms
+34: 256x288 25 beachs, 288.8ms
+35: 256x288 25 beachs, 288.8ms
+36: 256x288 25 beachs, 288.8ms
+37: 256x288 26 beachs, 288.8ms
+38: 256x288 28 beachs, 288.8ms
+39: 256x288 30 beachs, 288.8ms
+40: 256x288 30 beachs, 288.8ms
+41: 256x288 28 beachs, 288.8ms
+42: 256x288 28 beachs, 288.8ms
+43: 256x288 28 beachs, 288.8ms
+44: 256x288 28 beachs, 288.8ms
+45: 256x288 28 beachs, 288.8ms
+46: 256x288 28 beachs, 288.8ms
+47: 256x288 28 beachs, 288.8ms
+48: 256x288 28 beachs, 288.8ms
+49: 256x288 28 beachs, 288.8ms
+50: 256x288 28 beachs, 288.8ms
+51: 256x288 26 beachs, 288.8ms
+52: 256x288 27 beachs, 288.8ms
+53: 256x288 26 beachs, 288.8ms
+54: 256x288 26 beachs, 288.8ms
+55: 256x288 26 beachs, 288.8ms
+56: 256x288 26 beachs, 288.8ms
+57: 256x288 26 beachs, 288.8ms
+58: 256x288 27 beachs, 288.8ms
+59: 256x288 26 beachs, 288.8ms
+60: 256x288 26 beachs, 288.8ms
+61: 256x288 26 beachs, 288.8ms
+62: 256x288 27 beachs, 288.8ms
+63: 256x288 27 beachs, 288.8ms
+64: 256x288 27 beachs, 288.8ms
+65: 256x288 27 beachs, 288.8ms
+66: 256x288 27 beachs, 288.8ms
+67: 256x288 27 beachs, 288.8ms
+68: 256x288 27 beachs, 288.8ms
+69: 256x288 26 beachs, 288.8ms
+70: 256x288 26 beachs, 288.8ms
+71: 256x288 27 beachs, 288.8ms
+72: 256x288 26 beachs, 288.8ms
+73: 256x288 30 beachs, 288.8ms
+74: 256x288 26 beachs, 288.8ms
+75: 256x288 30 beachs, 288.8ms
+76: 256x288 30 beachs, 288.8ms
+77: 256x288 27 beachs, 288.8ms
+78: 256x288 26 beachs, 288.8ms
+79: 256x288 27 beachs, 288.8ms
+80: 256x288 26 beachs, 288.8ms
+Speed: 0.9ms preprocess, 288.8ms inference, 18.6ms postprocess per image at shape (1, 3, 256, 288)
+Results saved to /app/runs/segment/beach
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:28<00:00, 28.50s/it]100%|██████████| 1/1 [00:28<00:00, 28.50s/it]
+INFO:__main__:11:51:53: Postprocessing completed, exporting data. Memory usage: 3001.64 MB
+INFO:__main__:11:51:53: Created simulation - veryfine-sand_input_postprocessed.ini, Memory usage: 3001.64 MB
+INFO:__main__:11:52:25: Created simulation - veryfine-sand_sed_and_obj_data.ncMemory usage: 3001.64 MB
+INFO:__main__:11:52:25: Created simulation - veryfine-sand_statistics_summary.jsonMemory usage: 3001.64 MB
+INFO:__main__:11:52:25: Plotting stats, Memory usage: 3001.64 MB
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/app/gtpost/interface/postprocess.py", line 157, in <module>
+    main(**kwargs)
+  File "/app/gtpost/interface/postprocess.py", line 98, in main
+    stat_plotter.plot_histograms(fpath_output, "archel_summary")
+  File "/app/gtpost/visualize/plot.py", line 579, in plot_histograms
+    self.axs[0, 0].barh(
+  File "/app/.pixi/envs/prod/lib/python3.12/site-packages/matplotlib/axes/_axes.py", line 2834, in barh
+    patches = self.bar(x=left, height=height, width=width, bottom=y,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.pixi/envs/prod/lib/python3.12/site-packages/matplotlib/__init__.py", line 1524, in inner
+    return func(
+           ^^^^^
+  File "/app/.pixi/envs/prod/lib/python3.12/site-packages/matplotlib/axes/_axes.py", line 2583, in bar
+    x, height, width, y, linewidth, hatch = np.broadcast_arrays(
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/app/.pixi/envs/prod/lib/python3.12/site-packages/numpy/lib/_stride_tricks_impl.py", line 577, in broadcast_arrays
+    shape = _broadcast_shape(*args)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.pixi/envs/prod/lib/python3.12/site-packages/numpy/lib/_stride_tricks_impl.py", line 452, in _broadcast_shape
+    b = np.broadcast(*args[:64])
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 2 with shape (16,) and arg 3 with shape (6,).
+ERROR: postprocess failed with exit code 0
